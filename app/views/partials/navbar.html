@@ -1,8 +1,67 @@
 <header ng-controller="NavbarCtrl">
-  <h1>Chat</h1>
-  <a href="/">Chat</a></li>
-  <a href="/login" ng-hide="Auth.isLoggedIn()">Login</a>
-  <a href="/signup" ng-hide="Auth.isLoggedIn()">Sign up</a>
-  <a href="/settings" ng-show="Auth.isLoggedIn()">Settings</a>
-  <a href="" ng-click="logout()" ng-show="Auth.isLoggedIn()">Logout</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#myNavbar">
+          <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">SoftOlive</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#/">Home</a></li>
+
+          <li><a ng-href="#/about">About</a></li>
+          <li><a href="#/suggestions">Suggestions</a></li>
+          <li class="dropdown"><a class="dropdown-toggle"
+                                  data-toggle="dropdown" href="#">Javascript <span
+            class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ng-href="#/javascript">Javascript</a></li>
+              <li><a ng-href="#/nodejs">Node.js</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle"
+                                  data-toggle="dropdown" href="#">AngularJs <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ng-href="#/angularjs">AngularJs</a></li>
+              <li><a ng-href="#/todolist">Todolist</a></li>
+              <li><a ng-href="#/carousel">Carousel</a></li>
+              <li><a ng-href="#/animations">Animations</a></li>
+              <li><a ng-href="#/accordion">accordion</a></li>
+              <li><a ng-href="#/craEcranB">Cra</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle"
+                                  data-toggle="dropdown" ng-href="#/budget">Budget<span
+            class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ng-href="#/developpementweb">Developpement web</a></li>
+              <li><a ng-href="#/jquery">JQuery</a></li>
+              <li><a ng-href="#/html">Html5</a></li>
+              <li><a ng-href="#/css">CSS3</a></li>
+            </ul>
+          </li>
+
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#/signup" ng-hide="Auth.isLoggedIn()"><span
+            class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#/budget" ng-show="Auth.isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span>budget</a>
+          </li>
+          <li><a href="#/settings" ng-show="Auth.isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span>Settings</a>
+          </li>
+          <li><a href="#/login" ng-hide="Auth.isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+          </li>
+          <li><a href="" ng-click="logout()" ng-show="Auth.isLoggedIn()"><span
+            class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h1>Chatt <span style="color: grey" ng-show="Auth.isLoggedIn()">{{currentUser.name}}</span></h1>
+
 </header>
