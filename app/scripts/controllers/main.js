@@ -9,37 +9,38 @@ angular.module('chatApp')
     $scope.todos = [];
     $scope.markAll = false;
     $scope.title = "chose à faire";
-
+    $scope.priorite = 1;
     $scope.todo = {
       'text' : '',
       'owner' : '',
       'date' : new Date(),
-      'priority' : 'low',
+      'priorite' : 'low',
       'done' : false
     };
-
+    $scope.prioriteLabels1 = [{id:0,label:'Tranquillou'},{id:1,label:'Normal'},{id:2,label:'Urgent'}];
+    $scope.prioriteLabels = ['Tranquillou','Normal','Urgent'];
     $scope.estimates = [0, 1, 2, 3, 5, 8];
     $scope.editorEnabled = false;
     $scope.todos = [{
         name: "Carte grise voiture",
         estimate: 2,
-        prority: 3,
+        priorite: 1,
         done: false},
     {
         name: "Développer Application angularjs",
         estimate: 10,
-        prority: 1,
+        priorite: 1,
         done: false},
     {
         name: 'Uninstall ruby',
         estimate: 3,
-         prority: 2,
+         priorite: 2,
         done: false
     },
     {
         name: 'Sortir la machine à laver',
         estimate: 1,
-         prority: 1,
+         priorite: 1,
         done: true
     }];
 
@@ -130,11 +131,11 @@ angular.module('chatApp')
         }
         $scope.todos.push({
             name: $scope.todoName,
-            estimate: $scope.todoEstimate,
+          priorite: $scope.priorite,
             done: false
         });
         $scope.todoName = '';
-        $scope.todoEstimate = 0;
+        $scope.priorite = 1;
     };
 
     $scope.addTodo1Enter = function() {
@@ -144,11 +145,11 @@ angular.module('chatApp')
       if (event.keyCode == 13) {
         $scope.todos.push({
           name: $scope.todoName,
-          estimate: $scope.todoEstimate,
+          priorite: $scope.priorite,
           done: false
         });
         $scope.todoName = '';
-        $scope.todoEstimate = 0;
+        $scope.priorite = 0;
         }
     };
 
