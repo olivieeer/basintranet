@@ -124,7 +124,6 @@ angular.module('chatApp')
       });
     };
 
-    
     $scope.addTodo1 = function() {
         if ($scope.todoName === "") {
             return false;
@@ -137,16 +136,31 @@ angular.module('chatApp')
         $scope.todoName = '';
         $scope.todoEstimate = 0;
     };
-        
+
+    $scope.addTodo1Enter = function() {
+      if ($scope.todoName === "") {
+        return false;
+      }
+      if (event.keyCode == 13) {
+        $scope.todos.push({
+          name: $scope.todoName,
+          estimate: $scope.todoEstimate,
+          done: false
+        });
+        $scope.todoName = '';
+        $scope.todoEstimate = 0;
+        }
+    };
+
     $scope.sum = function(list, done) {
        var total = 0;
        angular.forEach(list, function(item) {
            if (item.done == done) total += item.estimate;
        });
-       return total;    
+       return total;
     };
 
-  
+
     $scope.enableEditor = function() {
         $scope.editorEnabled = true;
 
